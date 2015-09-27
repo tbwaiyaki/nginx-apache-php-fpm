@@ -1,0 +1,16 @@
+server {
+	root /usr/share/nginx/endelea.mug;
+	index index.php index.html index.htm;
+	
+	server_name endelea.mug www.endelea.mug;
+	location / {
+	try_files $uri $uri/ /index.php;
+	}
+	
+	location ~ \.php$ {
+		try_files $uri =404;
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+		}
+}
