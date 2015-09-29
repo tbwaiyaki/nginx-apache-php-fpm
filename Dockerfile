@@ -16,7 +16,7 @@ RUN apt-get update
 RUN sed -i -r 's|^# deb(.*multiverse)|deb\1|' /etc/apt/sources.list && \
         apt-get -y update && \
         apt-get -y upgrade && \
-        apt-get -y install apache2 libapache2-mod-fastcgi php5-fpm
+        apt-get -y install apache2 libapache2-mod-fastcgi php5-fpm php5-mysql
 
 # change Apache's port number to 8080 and configure it to work with
 # PHP5-FPM using the mod_fastcgi module and change the
